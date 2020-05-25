@@ -1,10 +1,8 @@
 $(document).ready(() => {
-    $('#searchForm').on('keyup submit', (e) => {
+    $('#searchForm').on('submit', (e) => {
+        e.preventDefault();
         let zipCode = $('#zipcode').val();
         getRestaurants(zipCode);
-        if (e.keyCode == '13') {
-            e.preventDefault();
-        }
     });
 });
 
