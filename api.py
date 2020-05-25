@@ -7,7 +7,7 @@ import zipcodes
 import random
 import os
 
-api_key=os.environ['YELP'] 
+key=os.environ['YELP'] 
 app = Flask(__name__)
 CORS (app)
 
@@ -27,7 +27,7 @@ def get_restaurants(zipCode):
     else:
         input = {'location':zipCode, 'open_now':'true'}
         try:   
-            api_key = api_key
+            api_key = key
             headers = {'Authorization': 'Bearer %s' % api_key}
             yelp_url='https://api.yelp.com/v3/businesses/search'
             req=requests.get(yelp_url, params=input, headers=headers)
@@ -39,10 +39,8 @@ def get_restaurants(zipCode):
 
 @app.route('/api/stores/single/<string:storeId>', methods=['GET','OPTIONS'])
 def get_restaurant(storeId):
-    input = {'id':storeId}
-    print (input)
     try:   
-        api_key = api_key
+        api_key = key
         headers = {'Authorization': 'Bearer %s' % api_key}
         yelp_url='https://api.yelp.com/v3/businesses/'+storeId
         req=requests.get(yelp_url, headers=headers)
