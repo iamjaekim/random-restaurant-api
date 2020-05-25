@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $('#searchForm').on('submit', (e) => {
+    $('#submit').click( (e) => {
         e.preventDefault();
         let zipCode = $('#zipcode').val();
         getRestaurants(zipCode);
