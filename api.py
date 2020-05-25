@@ -7,7 +7,7 @@ import zipcodes
 import random
 import os
 
-api_key=os.environ['yelp-api'] 
+api_key=os.environ['YELP'] 
 app = Flask(__name__)
 CORS (app)
 
