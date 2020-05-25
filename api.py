@@ -15,10 +15,6 @@ def zipValidation (zipCode) :
     #print (zipcodes.is_real (zipCode))
     return zipcodes.is_real (str(zipCode))
 
-@app.route('/')
-def index():
-    return "Hello, World!"
-
 @app.route('/api/stores/<int:zipCode>', methods=['GET','OPTIONS'])
 def get_restaurants(zipCode):
 
