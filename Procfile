@@ -1,1 +1,1 @@
-worker: gunicorn api:app -b :5000
+web: gunicorn api:app -b :5000
