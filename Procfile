@@ -1,1 +1,1 @@
-web: gunicorn api:wsgi -w 1 -b :5000
+web: gunicorn api:app -w 1 -b :5000
