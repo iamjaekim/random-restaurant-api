@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $('#searchForm').on('keyup touchend input','#zipcode', (e) => {
+    $('#searchForm').on('submit', (e) => {
         let zipCode = $('#zipcode').val();
         getRestaurants(zipCode);
         if (e.keyCode == '13') {
