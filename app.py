@@ -11,6 +11,10 @@ CORS (web)
 def index():
     return send_from_directory('frontend','index.html')
 
+@web.route('/favicon.ico')
+def favicon():
+    return send_from_directory('frontend','favicon.ico')
+
 @web.route('/css/style.css')
 def css():
     return send_from_directory('frontend/css','style.css')
