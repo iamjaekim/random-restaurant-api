@@ -1,1 +1,1 @@
-web: gunicorn api:app -b :5000 -w 1
+web: python api.py
