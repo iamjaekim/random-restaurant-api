@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, abort, jsonify, request, make_response
+from flask import Flask, abort, jsonify, request, make_response, redirect
 from flask_cors import CORS
 import requests
 import json
@@ -14,6 +14,10 @@ CORS (app)
 def zipValidation (zipCode) :
     #print (zipcodes.is_real (zipCode))
     return zipcodes.is_real (str(zipCode))
+
+@app.route('/', methods=['GET'])
+def index():
+    return redirect("https://random-restaurant-zipcode.herokuapp.com/", code=302)
 
 @app.route('/api/stores/<int:zipCode>', methods=['GET','OPTIONS'])
 def get_restaurants(zipCode):
