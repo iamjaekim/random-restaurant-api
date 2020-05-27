@@ -7,9 +7,10 @@ $(document).ready(() => {
 });
 
 function getRestaurants(zipCode) {
+    const port = int( process.env.PORT )
     $.ajax({
         type: "GET",
-        url: 'http://127.0.0.1:5000/api/stores/'+zipCode,
+        url: 'http://0.0.0.0:${port}/api/stores/'+zipCode,
         contentType: "application/x-www-form-urlencoded",
     }).then((response) => {
         console.log(response)
@@ -45,10 +46,10 @@ function restaurantSelected(storeId) {
 
 function getRestaurant() {
     let restaurantId = sessionStorage.getItem('storeId');
-
+    const port = int( process.env.PORT )
     $.ajax({
         type: "GET",
-        url: 'http://127.0.0.1:5000/api/stores/single/'+restaurantId,
+        url: 'http://0.0.0.0:${port}/api/stores/single/'+restaurantId,
         contentType: "application/x-www-form-urlencoded",
     }).then((response) => {
         console.log(response)
